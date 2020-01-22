@@ -1,8 +1,11 @@
 package base;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
@@ -47,6 +50,17 @@ public class CommonAPI {
         driver.close();
         driver.quit();
    }
+    public void waitUntilClickable(String locator, int seconds) {
+        WebDriverWait webDriverWait = new WebDriverWait(driver, seconds);
+        webDriverWait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
+        driver.findElement(By.xpath(locator)).click();
+    }
+//    public void waitUntilVisible(String locator,int seconds){
+//        WebDriverWait wait2 = new WebDriverWait(driver,seconds);
+//        wait2.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(locator)));
+//        driver.findElement(By.xpath(locator)).click();
+//    }
+
     public void sleepFor(int seconds){
         try {
             Thread.sleep(seconds*1000);
