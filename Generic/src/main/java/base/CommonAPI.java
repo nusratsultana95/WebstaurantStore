@@ -50,11 +50,11 @@ public class CommonAPI {
         driver.close();
         driver.quit();
    }
-    public void waitUntilClickable(String locator, int seconds) {
-        WebDriverWait webDriverWait = new WebDriverWait(driver, seconds);
-        webDriverWait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
-        driver.findElement(By.xpath(locator)).click();
-    }
+//    public void waitUntilClickable(String locator, int seconds) {
+//        WebDriverWait webDriverWait = new WebDriverWait(driver, seconds);
+//        webDriverWait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
+//        driver.findElement(By.xpath(locator)).click();
+//    }
 //    public void waitUntilVisible(String locator,int seconds){
 //        WebDriverWait wait2 = new WebDriverWait(driver,seconds);
 //        wait2.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(locator)));

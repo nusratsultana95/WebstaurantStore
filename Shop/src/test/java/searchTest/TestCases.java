@@ -20,6 +20,7 @@ public class TestCases extends CommonAPI {
         searchResult.productTitleValidation();
         searchResult.clickOnLastElement();
         searchResult.clickOnAddToCart();
-        searchResult.clickOnViewCart();
+        //searchResult.clickOnViewCart();
+        searchResult.waitUntilClickable(5);
     }
 }
