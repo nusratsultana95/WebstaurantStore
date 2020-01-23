@@ -13,16 +13,16 @@ public class OrderPage extends CommonAPI {
     @FindBy(xpath = "/html[1]/body[1]/div[3]/div[2]/div[2]/div[1]/div[2]/div[1]/a[1]/button[1]")
     WebElement viewCart;
 
-
-    public void clickOnAddToCart(){
+    public void clickOnAddToCart() {
         addToCart.click();
-        Assert.assertEquals(viewCart.isDisplayed(),true,"Product didn't add to cart");
-
+        Assert.assertEquals(viewCart.isDisplayed(), true, "Product didn't add to cart");
     }
 
+    /*As the element is not interacted with, it throws ElementNotInteractableException.
+    That's why Explicit wait is needed here*/
     public void waitUntilClickable(int seconds) {
         WebDriverWait webDriverWait = new WebDriverWait(driver, seconds);
         webDriverWait.until(ExpectedConditions.elementToBeClickable(viewCart)).click();
-        //Assert.assertEquals(emptyCart.isDisplayed(),true,"Checkout page isn't get displayed");
     }
 }
+

@@ -7,30 +7,32 @@ import org.testng.annotations.Test;
 import pages.CheckOutPage;
 import pages.HomePage;
 import pages.OrderPage;
-import pages.ProductPage_Stainless_Work_Table;
+import pages.ProductPage;
 
 public class TestCases extends CommonAPI {
     HomePage homePage;
-    ProductPage_Stainless_Work_Table productPageObj;
+    ProductPage productPage;
     OrderPage orderPage;
     CheckOutPage checkOutPage;
+
     @BeforeMethod
-    public void setSearchResult(){
+    public void setPages() {
         homePage = PageFactory.initElements(driver, HomePage.class);
-        productPageObj=PageFactory.initElements(driver,ProductPage_Stainless_Work_Table.class);
-        orderPage=PageFactory.initElements(driver,OrderPage.class);
-        checkOutPage=PageFactory.initElements(driver,CheckOutPage.class);
+        productPage = PageFactory.initElements(driver, ProductPage.class);
+        orderPage = PageFactory.initElements(driver, OrderPage.class);
+        checkOutPage = PageFactory.initElements(driver, CheckOutPage.class);
     }
+
     @Test
-    public void shopTestValidation(){
+    public void validateShopFunctionality() {
         homePage.clickOnSearchField();
         homePage.typeOnSearchField("stainless work table");
-        homePage.validateSearchButton();
-        productPageObj.productTitleValidation();
-        productPageObj.clickOnLastElement();
+        homePage.clickOnSearchButton();
+        productPage.getProductTitle();
+        productPage.clickOnLastElement();
         orderPage.clickOnAddToCart();
         orderPage.waitUntilClickable(5);
         checkOutPage.clickOnEmptyCart();
-        checkOutPage.validateWarning();
+        checkOutPage.clickOnConfirmEmptyCart();
     }
 }
