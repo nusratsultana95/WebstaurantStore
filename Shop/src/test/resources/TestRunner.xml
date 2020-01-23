@@ -9,7 +9,7 @@
 
     <test name="Automation Test">
         <classes>
-            <class name="searchTest.TestCases"/>
+            <class name="testPages.TestCases"/>
         </classes>
     </test>
 </suite>
